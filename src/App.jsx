@@ -248,18 +248,15 @@ function Services() {
           </div>
           {/* CNC */}
           {[
-            { num:"01", icon:<CncIcon/>, label:"Wood CNC", title:"CNC Router
-Services", desc:"Precision-routed wood panels, signs, decorative pieces, and structural components cut from your DXF or SVG files. Hardwoods, plywoods, and MDF all welcome.", features:["Custom signs & lettering","Decorative panels & wall art","Structural wood parts & jigs","Inlay & relief carving"] },
-            { num:"02", icon:<DesignIcon/>, label:"Design Help", title:"File Prep &
-Design Aid", desc:"Don't have a model? We can help prepare your concept for fabrication, optimize models for printing, or create simple designs from scratch.", features:["STL optimization & repair","DXF / SVG file prep for CNC","Simple 3D modeling add-on"] },
+            { num:"01", icon:<CncIcon/>, label:"Wood CNC", title:"CNC Router\nServices", desc:"Precision-routed wood panels, signs, decorative pieces, and structural components cut from your DXF or SVG files. Hardwoods, plywoods, and MDF all welcome.", features:["Custom signs & lettering","Decorative panels & wall art","Structural wood parts & jigs","Inlay & relief carving"] },
+            { num:"02", icon:<DesignIcon/>, label:"Design Help", title:"File Prep &\nDesign Aid", desc:"Don't have a model? We can help prepare your concept for fabrication, optimize models for printing, or create simple designs from scratch.", features:["STL optimization & repair","DXF / SVG file prep for CNC","Simple 3D modeling add-on"] },
           ].map(card => (
             <div key={card.num} style={{background:C.cardBg, border:"1px solid rgba(0,0,0,0.07)", borderRadius:10, padding:"2rem", position:"relative", overflow:"hidden"}}>
               <div style={{fontFamily:"'DM Mono',monospace", fontSize:"0.7rem", letterSpacing:"0.18em", color:C.muted, marginBottom:"1.2rem"}}>{card.num} ——</div>
               <div style={{display:"flex", alignItems:"center", gap:"0.5rem", fontFamily:"'DM Mono',monospace", fontSize:"0.72rem", letterSpacing:"0.14em", textTransform:"uppercase", color:C.orange, marginBottom:"0.75rem"}}>
                 {card.icon} {card.label}
               </div>
-              <h3 style={{fontFamily:"'Bebas Neue',sans-serif", fontSize:"2rem", letterSpacing:"0.03em", color:C.charcoal, marginBottom:"0.75rem"}}>{card.title.split('
-').map((l,i)=><span key={i}>{l}{i===0&&<br/>}</span>)}</h3>
+              <h3 style={{fontFamily:"'Bebas Neue',sans-serif", fontSize:"2rem", letterSpacing:"0.03em", color:C.charcoal, marginBottom:"0.75rem"}}>{card.title.split('\n').map((l,i)=><span key={i}>{l}{i===0&&<br/>}</span>)}</h3>
               <p style={{fontSize:"0.9rem", lineHeight:1.7, color:C.muted, fontWeight:300}}>{card.desc}</p>
               <div style={{marginTop:"1.5rem", display:"flex", flexDirection:"column", gap:"0.5rem"}}>
                 {card.features.map(f => (
