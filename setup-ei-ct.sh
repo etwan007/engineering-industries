@@ -36,7 +36,7 @@ pct create $CTID $TEMPLATE \
   --hostname $HOSTNAME \
   --memory $MEMORY \
   --swap 512 \
-  --rootfs $STORAGE:$DISK_SIZE \
+  --rootfs $STORAGE:8 \
   --net0 name=eth0,bridge=$BRIDGE,gw=$GW,ip=$IP,type=veth \
   --onboot 1 \
   --startup order=3,up=30 \
