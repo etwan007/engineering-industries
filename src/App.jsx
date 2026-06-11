@@ -46,12 +46,13 @@ const serviceCards = [
     label: '3D Printing',
     title: 'FDM 3D Printing',
     description:
-      "From functional engineering parts that need strength and heat resistance to toys and collectibles — we print it all with FDM technology. Upload your STL and get a quote within hours.",
+      "From functional engineering parts that need strength and heat resistance to toys and collectibles — we print it all with FDM technology. Upload your STL or STEP file and get a quote within hours.",
     features: [
       'Toys, figures & collectibles',
       'Functional mechanical parts & enclosures',
       'Prototypes & proof-of-concept models',
       'Multi-material & flexible parts (TPU)',
+      'Accepts STL and STEP files',
       'Layer heights from 0.1mm to 0.3mm'
     ],
     mockup: [
@@ -67,12 +68,13 @@ const serviceCards = [
     label: 'Wood CNC',
     title: 'CNC Router Services',
     description:
-      'Precision-routed wood panels, signs, decorative pieces, and structural components cut from your DXF or SVG files. Hardwoods, plywoods, and MDF all welcome.',
+      "Precision-routed wood panels, signs, decorative pieces, and structural components cut from your DXF or SVG files. Don't have a file? We can design your sign or panel for you. Hardwoods, plywoods, and MDF all welcome.",
     features: [
       'Custom signs & lettering',
       'Decorative panels & wall art',
       'Structural wood parts & jigs',
-      'Inlay & relief carving'
+      'Inlay & relief carving',
+      'Custom design available — no file needed'
     ],
     icon: (
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M8 12h8M12 8v8" /></svg>
@@ -85,7 +87,7 @@ const serviceCards = [
     description:
       "Don't have a model? No problem. We can help prepare your concept for fabrication, optimize models for printing, or create simple designs from scratch.",
     features: [
-      'STL optimization & repair',
+      'STL/STEP optimization & repair',
       'DXF / SVG file prep for CNC',
       'Simple 3D modeling add-on'
     ],
@@ -100,7 +102,7 @@ const processSteps = [
     number: '01',
     title: 'Submit Your Files',
     description:
-      'Send us your STL, DXF, SVG, or even a sketch. We accept most common design formats and will confirm receipt quickly.',
+      'Send us your STL, STEP, DXF, SVG, or even a sketch. We accept most common design formats and will confirm receipt quickly.',
     icon: (
       <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
     )
@@ -109,7 +111,7 @@ const processSteps = [
     number: '02',
     title: 'Review & Quote',
     description:
-      'We review your files, confirm dimensions and material choices, then send you a clear quote — usually within a few hours.',
+      'We review your files, confirm dimensions and material choices, then send you a clear quote — by end of day.',
     icon: (
       <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
     )
@@ -127,7 +129,7 @@ const processSteps = [
     number: '04',
     title: 'Ship or Pick Up',
     description:
-      'Your finished parts are carefully packaged and shipped, or available for local pickup. Typical turnaround is 24–72 hours.',
+      'Your finished parts are ready for local pickup, or we can ship them to you — shipping is an additional cost and will be estimated in your quote. Typical turnaround is 24–72 hours.',
     icon: (
       <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
     )
@@ -159,7 +161,7 @@ const pricingCards = [
       'Parts up to ~100 cm³ volume',
       'Standard PLA or PETG',
       '0.2mm layer height (default)',
-      '48–72 hr turnaround',
+      '24–48 hr turnaround (excl. shipping)',
       'Basic sanding/support removal'
     ]
   },
@@ -174,7 +176,7 @@ const pricingCards = [
       'Any filament material',
       '0.1–0.15mm fine-detail settings',
       'Light post-processing included',
-      'Multicolor available (add-on)'
+      'Any filament material'
     ]
   },
   {
@@ -187,7 +189,7 @@ const pricingCards = [
       'Plywood, MDF, or hardwood',
       'Profile cuts & pockets',
       'Light sanding finish',
-      'DXF or SVG file required'
+      'DXF/SVG preferred — we can design one for you'
     ]
   }
 ];
@@ -203,12 +205,12 @@ const faqItems = [
   {
     question: 'What file formats do you accept?',
     answer:
-      'For 3D printing we accept STL, OBJ, 3MF, and STEP files. For CNC wood routing we accept DXF, SVG, or G-code. If you only have a sketch or idea, we can help with basic file preparation as an add-on service.'
+      'For 3D printing we accept STL, STEP, OBJ, and 3MF files. For CNC wood routing we accept DXF or SVG. If you only have a sketch or idea, we can help with basic file preparation as an add-on service.'
   },
   {
     question: 'How long does production take?',
     answer:
-      'Most small 3D prints complete in 24–48 hours after order approval. Larger or more detailed parts may take 48–72 hours. CNC wood pieces are typically 48–96 hours depending on complexity. Rush orders can often be accommodated — just ask.'
+      'Toys and small 3D prints typically complete in 24–48 hours after order approval (not including shipping time). Larger or more detailed parts may take 48–72 hours. CNC wood pieces are typically 48–96 hours depending on complexity. Rush orders can often be accommodated — just ask.'
   },
   {
     question: 'Can I get multiple copies at a discount?',
@@ -218,17 +220,17 @@ const faqItems = [
   {
     question: 'Do you offer finishing or painting?',
     answer:
-      'Basic support removal and sanding is included. Priming, painting, and specialty finishes (epoxy coating, staining for CNC wood) are available as add-ons. We quote these per job.'
+      'Basic support removal and sanding is included. Priming, painting, staining, and sealant are available as add-ons. We quote these per job.'
   },
   {
     question: "What if my part doesn't turn out right?",
     answer:
-      "We inspect every part before it ships. If there's a defect on our end, we'll reprint or recut at no cost. We'll always review your files and flag potential issues before production begins."
+      "We inspect every part before it ships. If something doesn't look right, we'll be more than willing to look into it and see if it is applicable for a reprint or recut at no extra cost. We'll always review your files and flag potential issues before production begins."
   },
   {
     question: 'Do you ship or is it local pickup only?',
     answer:
-      'Both! Local pickup is available and free. We also ship via USPS, UPS, or FedEx — shipping cost is calculated at checkout based on package size and destination.'
+      'Both! Local pickup is available and free. We also ship — shipping cost is an additional charge and will be estimated in your quote.'
   }
 ];
 
@@ -243,13 +245,13 @@ const contactItems = [
     icon: (
       <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.34 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.04 6.04l1.12-1.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 15.17z" /></svg>
     ),
-    text: '(555) 123-4567'
+    text: '(812) 453-0522'
   },
   {
     icon: (
       <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
     ),
-    text: 'Serving locally + shipping nationwide'
+    text: 'Local pickup available — shipping nationwide (extra cost, estimated in quote)'
   }
 ];
 
@@ -416,15 +418,15 @@ function App() {
             </div>
             <div className="hero-stats">
               <div>
-                <div className="stat-num">50+</div>
-                <div className="stat-label">Materials Available</div>
+                <div className="stat-num">Variety</div>
+                <div className="stat-label">of Materials</div>
               </div>
               <div>
                 <div className="stat-num">0.1mm</div>
                 <div className="stat-label">Print Resolution</div>
               </div>
               <div>
-                <div className="stat-num">48hr</div>
+                <div className="stat-num">72hr</div>
                 <div className="stat-label">Turnaround (typical)</div>
               </div>
             </div>
@@ -628,8 +630,8 @@ function App() {
                   </tr>
                   <tr>
                     <td>File Formats</td>
-                    <td>STL, OBJ, 3MF</td>
-                    <td>DXF, SVG, G-code</td>
+                    <td>STL, STEP, OBJ, 3MF</td>
+                    <td>DXF, SVG</td>
                   </tr>
                 </tbody>
               </table>
@@ -851,7 +853,7 @@ function App() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1rem', marginBottom: '2rem' }}>
             {[
               { value: '0.1mm', label: 'Print Resolution' },
-              { value: '48hr', label: 'Typical Turnaround' },
+              { value: '72hr', label: 'Typical Turnaround' },
               { value: 'FREE', label: 'Quotes & File Review' }
             ].map((item) => (
               <div key={item.label} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '8px', padding: '1rem', textAlign: 'center' }}>
