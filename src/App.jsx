@@ -395,7 +395,7 @@ function App() {
           <div>
             <div className="hero-tag">Custom Engineering Services</div>
             <h1>
-              Built to Test
+              Built to Test last
               <br />
               <span className="accent">Spec.</span>
               <br />
