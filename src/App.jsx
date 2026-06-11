@@ -371,7 +371,7 @@ function App() {
     <>
       <nav>
         <a href="#" className="nav-logo">
-          Engineering<span>Industries</span>Test2
+          Engineering<span> Industries</span>
         </a>
         <button className="nav-toggle" onClick={toggleMenu} aria-expanded={menuOpen} aria-label="Toggle navigation">
           <span />
