@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { client } from './lib/appwrite';
+import emailjs from '@emailjs/browser';
 
 const navLinks = [
   { href: '#services', label: 'Services' },
@@ -343,30 +344,37 @@ function App() {
     event.preventDefault();
     if (isSubmitting) return;
 
-    const mailBody = [
-      `Name: ${firstName} ${lastName}`.trim(),
-      `Email: ${emailAddress}`,
-      `Service: ${serviceNeeded || 'Not specified'}`,
-      '',
-      'Project Description:',
-      projectDescription || 'No description provided.'
-    ].join('\n');
-
-    const mailtoLink = `mailto:etwan07@gmail.com?subject=${encodeURIComponent(
-      'Engineering Industries Quote Request'
-    )}&body=${encodeURIComponent(mailBody)}`;
-
     setIsSubmitting(true);
-    setSubmitLabel('Opening email client…');
-    window.location.href = mailtoLink;
+    setSubmitLabel('Sending…');
 
-    setTimeout(() => {
-      setSubmitLabel("✓ Email draft opened. Send it when ready.");
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: `${firstName} ${lastName}`.trim(),
+        from_email: emailAddress,
+        service_needed: serviceNeeded || 'Not specified',
+        message: projectDescription || 'No description provided.',
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    ).then(() => {
+      setSubmitLabel('✓ Message sent!');
+      setFirstName('');
+      setLastName('');
+      setEmailAddress('');
+      setServiceNeeded('');
+      setProjectDescription('');
       setTimeout(() => {
         setSubmitLabel('Send Quote Request →');
         setIsSubmitting(false);
       }, 3000);
-    }, 1000);
+    }).catch(() => {
+      setSubmitLabel('Failed to send — please try again');
+      setTimeout(() => {
+        setSubmitLabel('Send Quote Request →');
+        setIsSubmitting(false);
+      }, 3000);
+    });
   };
 
   return (
