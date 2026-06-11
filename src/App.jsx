@@ -348,15 +348,15 @@ function App() {
     setSubmitLabel('Sending…');
 
     emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      'service_bzjlax8',
+      'template_h7vkebb',
       {
         from_name: `${firstName} ${lastName}`.trim(),
         from_email: emailAddress,
         service_needed: serviceNeeded || 'Not specified',
         message: projectDescription || 'No description provided.',
       },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      'r4cm8FkzbuTMXGC0N'
     ).then(() => {
       setSubmitLabel('✓ Message sent!');
       setFirstName('');
