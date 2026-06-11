@@ -47,6 +47,10 @@ nav {
   transition: padding 0.3s;
 }
 
+nav.scrolled {
+  padding: 0.75rem 3rem;
+}
+
 .nav-logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem;

@@ -320,7 +320,7 @@ function App() {
     const handleScroll = () => {
       const nav = document.querySelector('nav');
       if (!nav) return;
-      nav.style.padding = window.scrollY > 60 ? '0.75rem 3rem' : '1.2rem 3rem';
+      nav.classList.toggle('scrolled', window.scrollY > 60);
     };
 
     window.addEventListener('scroll', handleScroll);
